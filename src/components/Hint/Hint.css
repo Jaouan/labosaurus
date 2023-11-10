@@ -1,0 +1,18 @@
+.hint {
+  user-select: none;
+  color: gray;
+  cursor: help;
+}
+
+.hint span {
+  transition: all 500ms ease-in-out;
+  margin-left: 20px;
+  font-weight: bold;
+  color: initial;
+  opacity: 0;
+}
+
+.hint:hover span,
+.hint:focus span {
+  opacity: 1;
+}

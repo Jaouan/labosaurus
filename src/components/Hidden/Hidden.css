@@ -1,0 +1,24 @@
+.hidden-block {
+  background: var(--ifm-menu-color-background-active);
+  margin: 0px 30px 40px 30px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  max-width: 40vw;
+  padding: 5px;
+}
+
+.hidden-block--btn {
+  margin-left: 0.5em;
+  cursor: pointer;
+  display: none;
+}
+
+.admin .hidden-block--btn {
+  display: initial;
+}
+
+.admin .hidden-block--btn-hide {
+  margin-right: 5px;
+  float: right;
+}
