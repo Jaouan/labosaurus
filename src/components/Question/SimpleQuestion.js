@@ -1,24 +1,29 @@
 import { useState, useEffect } from "react";
+import clsx from "clsx";
 
 import "./SimpleQuestion.css";
-import clsx from "clsx";
 
 const toAnswerObject = (anAnswer) => anAnswer.label ? anAnswer : { label: anAnswer };
 
-export default function SimpleQuestion({ label, answer, wrongAnswers }) {
+const suffleArray = (arr) => arr.map(value => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value);
+
+export default function SimpleQuestion({ label, answer, wrongAnswers, randomize }) {
     const [properAnswer, setProperAnswer] = useState({});
     const [allAnswers, setAllAnswers] = useState([]);
     const [selectedAnswer, setSelectedAnswer] = useState(false);
 
     useEffect(() => {
         setProperAnswer(toAnswerObject(answer))
-        setAllAnswers([answer, ...wrongAnswers].map(toAnswerObject));
+        const orderedAnswers = [answer, ...wrongAnswers].map(toAnswerObject);
+        setAllAnswers(randomize ? suffleArray(orderedAnswers) : orderedAnswers);
     }, []);
 
     const selectAnswer = (selectedAnswer) => setSelectedAnswer(selectedAnswer.label);
 
     return <div className={`block question ${clsx({ "question--answered": selectedAnswer })}`}>
-        <div className="question-label">🤔 {label}</div>
+        <div className="question-label">{label}</div>
         <ul>
             {allAnswers.map((anAnswer, answerIndex) => (
                 <li key={answerIndex}>
