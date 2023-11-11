@@ -1,10 +1,13 @@
-.hint {
+.hint-container {
   user-select: none;
   color: gray;
+}
+
+.hint-container .hint-icon {
   cursor: help;
 }
 
-.hint span {
+.hint-container .hint {
   transition: all 500ms ease-in-out;
   margin-left: 20px;
   font-weight: bold;
@@ -12,7 +15,7 @@
   opacity: 0;
 }
 
-.hint:hover span,
-.hint:focus span {
+.hint-container .hint-icon:hover + .hint,
+.hint-container .hint-icon:focus + .hint {
   opacity: 1;
 }
