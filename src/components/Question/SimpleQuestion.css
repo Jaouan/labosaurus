@@ -37,6 +37,7 @@
   border: 1px solid var(--ifm-color-emphasis-300);
   transition: border-color var(--ifm-transition-fast)
     var(--ifm-transition-timing-default);
+  box-shadow: none;
 }
 .question ul li button:not([disabled]) {
   cursor: pointer;

@@ -29,8 +29,8 @@ export default function Hidden({ until, label = "Hidden block.", group = "defaul
             {children}
         </>
         :
-        <div className="block hidden-block">
-            {label}
+        <>
             <span className="hidden-block--btn" onClick={showBlock}>🙌</span>
-        </div>;
+            <div className="block hidden-block">{label}</div>
+        </>;
 }

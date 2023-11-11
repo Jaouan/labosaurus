@@ -1,11 +1,13 @@
 .hidden-block {
+  user-select: none;
   text-align: center;
   font-weight: bold;
-  max-width: 40vw;
+  /* max-width: 40vw; ? */
 }
 
 .hidden-block--btn {
-  margin-left: 0.5em;
+  margin-right: 5px;
+  float: right;
   cursor: pointer;
   display: none;
 }
@@ -15,6 +17,7 @@
 }
 
 .admin .hidden-block--btn-hide {
+  user-select: none;
   margin-right: 5px;
   float: right;
 }

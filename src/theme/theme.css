@@ -43,7 +43,6 @@ details * {
   --docusaurus-details-decoration-color: gray;
 }
 
-
 .slide .slide--page-space {
   display: block;
   height: 90vh;
@@ -61,6 +60,8 @@ details * {
 .block {
   background: var(--ifm-menu-color-background-active);
   border-radius: var(--ifm-global-radius);
-  margin: var(--ifm-global-spacing);
+  margin: 0 0 var(--ifm-spacing-vertical);
+  border: 1px solid transparent;
+  box-shadow: var(--ifm-alert-shadow);
   padding: var(--ifm-global-spacing);
 }
