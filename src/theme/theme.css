@@ -57,3 +57,10 @@ details * {
 .slide aside {
   visibility: hidden;
 }
+
+.block {
+  background: var(--ifm-menu-color-background-active);
+  border-radius: var(--ifm-global-radius);
+  margin: var(--ifm-global-spacing);
+  padding: var(--ifm-global-spacing);
+}

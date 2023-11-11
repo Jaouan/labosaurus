@@ -1,11 +1,7 @@
 .hidden-block {
-  background: var(--ifm-menu-color-background-active);
-  margin: 0px 30px 40px 30px;
-  border-radius: 5px;
   text-align: center;
   font-weight: bold;
   max-width: 40vw;
-  padding: 5px;
 }
 
 .hidden-block--btn {

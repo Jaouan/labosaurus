@@ -58,12 +58,7 @@ const config = {
             href: 'https://github.com/Jaouan/labosaurus',
             label: 'GitHub',
             position: 'right',
-          },
-          {
-            href: 'https://github.com/Jaouan/labosaurus',
-            label: 'GitHub',
-            position: 'right',
-          },
+          }
         ],
       },
       footer: {

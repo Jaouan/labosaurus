@@ -24,7 +24,6 @@ export default function AdminMode({ children, userEmail }) {
     }, [checkKeyPress]);
 
     useEffect(() => {
-        console.log("useEffect");
         (async () => setAdmin(await checkIsAdmin(userEmail)))();
     }, []);
 
