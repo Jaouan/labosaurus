@@ -21,6 +21,7 @@ const config = {
     defaultLocale: 'fr',
     locales: ['fr'],
   },
+  plugins: ['@docusaurus/theme-live-codeblock'],
   presets: [
     [
       'classic',
@@ -69,6 +70,9 @@ const config = {
         theme: prismThemes.dracula,
         darkTheme: prismThemes.dracula,
       },
+      liveCodeBlock: {
+        playgroundPosition: 'bottom',
+      }
     }),
 };
 
