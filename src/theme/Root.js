@@ -1,20 +1,19 @@
-import React, { useState } from 'react';
-import { auth } from '../firebase/firebase';
-import Login from '../components/Login/Login';
-import AdminMode from '../components/AdminMode/AdminMode';
+import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
+
+import LabosaurusRoot from '../../lib/components/LabosaurusRoot';
+import firebaseAuthProvider from '../../lib/providers/auth/firebase';
+import firebaseStoreProvider from '../../lib/providers/store/firestore';
+
+import * as firebase from 'firebase/app';
+import { getAnalytics } from "firebase/analytics";
+import firebaseConfig from "../firebase-config.json";
+
+export const app = firebase.initializeApp(firebaseConfig);
+ExecutionEnvironment.canUseDOM && getAnalytics(app);
 
 export default function Root({ children }) {
-    const [user, setUser] = useState(null);
-    const [verifyingAuthentication, setVerifyingAuthentication] = useState(true);
-
-    const isAuthenticated = () => user?.email;
-
-    auth.onAuthStateChanged((userAuth) => {
-        user !== userAuth && setUser(userAuth);
-        verifyingAuthentication && setVerifyingAuthentication(false);
-    });
-
-    if (verifyingAuthentication) return <></>;
-    if (isAuthenticated()) return <AdminMode userEmail={user.email}>{children}</AdminMode>;
-    return <Login />;
+    return <LabosaurusRoot config={{
+        authProvider: firebaseAuthProvider(app),
+        storeProvider: firebaseStoreProvider(app)
+    }}>{children}</LabosaurusRoot>;
 }

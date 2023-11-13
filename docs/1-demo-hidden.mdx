@@ -1,10 +1,11 @@
-import Hidden from "@site/src/components/Hidden/Hidden";
+import Hidden from "@site/lib/components/Hidden/Hidden";
 
 # 1. Demo Hidden
 
 ## Group 1
+
 Only admin can show/hide hidden block.  
-Hidden block is hidden on client side, content is not in the DOM, but can be extracted from sources.  
+Hidden block is hidden on client side, content is not in the DOM, but can be extracted from sources.
 
 <Hidden until="101">
   <details>
@@ -13,7 +14,7 @@ Hidden block is hidden on client side, content is not in the DOM, but can be ext
 ```bash
 echo foo
 ```
-</div>
+    </div>
   </details>
 </Hidden>
 <Hidden until="102" label="Hidden with custom label.">
@@ -24,10 +25,15 @@ echo foo
 </Hidden>
 
 ## Group 2
+
 <Hidden until="101" group="group-2">
   <details>
     <summary>🙌 **Solution**</summary>
-    <div>```bash echo foo ```</div>
+    <div>
+```bash
+echo foo
+```
+    </div>
   </details>
 </Hidden>
 <Hidden until="102" group="group-2">
