@@ -1,15 +1,21 @@
 import { Sandpack } from "@codesandbox/sandpack-react";
 
-# 5. JS sandbox
+# 5. JS live editor
 
 ## Sandpack - ReactJS basic
 
 <Sandpack template="react" />
 
-## Sandpack - ReactJS complete
-Dark theme, dependencies, multiple files.
+## Sandpack - ReactJS full
+
+Dark theme, dependencies, multiple files, line numbers.
+
 <Sandpack
   theme="dark"
+  options={{
+    showLineNumbers: true,
+    showInlineErrors: true,
+  }}
   customSetup={{
     entry: "/App.js",
     dependencies: { 
@@ -27,13 +33,15 @@ export default function App() {
 }
 
 const root = ReactDOM.createRoot(
-    document.getElementById('root')
+document.getElementById('root')
 );
 root.render(<App/>);`,
     "/index.html": `<html>
-    <body>
-        <div id="root"></div>
-    </body>
+
+<body>
+  <div id="root"></div>
+</body>
+
 </html>`,
 }}
 />
@@ -42,7 +50,7 @@ root.render(<App/>);`,
 
 <Sandpack template="vue" />
 
-## Docusaurus (native)
+## Docusaurus (native) - ReactJS
 
 ```jsx live
 function Clock(props) {
