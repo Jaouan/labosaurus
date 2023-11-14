@@ -1,0 +1,80 @@
+import { Sandpack } from "@codesandbox/sandpack-react";
+
+# 5. JS editor
+
+:::info
+**This page do not use Labosaurus.**  
+It uses [Sandpack](https://github.com/codesandbox/sandpack) and [Docusaurus Live Editor](https://docusaurus.io/docs/markdown-features/code-blocks#interactive-code-editor).
+:::
+
+
+## Sandpack - ReactJS basic
+
+<Sandpack template="react" />
+
+## Sandpack - ReactJS full
+
+Dark theme, dependencies, multiple files, line numbers.
+
+<Sandpack
+  theme="dark"
+  options={{
+    showLineNumbers: true,
+    showInlineErrors: true,
+  }}
+  customSetup={{
+    entry: "/App.js",
+    dependencies: { 
+      "react": "latest",
+      "react-dom": "latest",
+      "react-markdown": "latest" 
+    },
+  }}
+  files={{
+    "/App.jsx": `import ReactDOM from 'react-dom';
+import ReactMarkdown from 'react-markdown';
+
+export default function App() {
+  return <ReactMarkdown># Hello, *world*!</ReactMarkdown>;
+}
+
+const root = ReactDOM.createRoot(
+document.getElementById('root')
+);
+root.render(<App/>);`,
+    "/index.html": `<html>
+
+<body>
+  <div id="root"></div>
+</body>
+
+</html>`,
+}}
+/>
+
+## Sandpack - VueJS basic
+
+<Sandpack template="vue" />
+
+## Docusaurus (native) - ReactJS
+
+```jsx live
+function Clock(props) {
+  const [date, setDate] = useState(new Date());
+
+  useEffect(() => {
+    const timerID = setInterval(() => tick(), 1000);
+    return () => clearInterval(timerID);
+  });
+
+  function tick() {
+    setDate(new Date());
+  }
+
+  return (
+    <div>
+      <h2>It is {date.toLocaleTimeString()}.</h2>
+    </div>
+  );
+}
+```

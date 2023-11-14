@@ -1,47 +1,24 @@
 {
-  "name": "@jaouan/labosaurus",
-  "version": "0.0.0",
+  "name": "labosaurus-root",
   "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "docusaurus": "docusaurus",
-    "start": "docusaurus start",
-    "build": "docusaurus build",
-    "swizzle": "docusaurus swizzle",
-    "deploy": "docusaurus deploy",
-    "clear": "docusaurus clear",
-    "serve": "docusaurus serve",
-    "write-translations": "docusaurus write-translations",
-    "write-heading-ids": "docusaurus write-heading-ids"
-  },
-  "dependencies": {
-    "@codesandbox/sandpack-react": "^2.9.0",
-    "@docusaurus/core": "3.0.0",
-    "@docusaurus/preset-classic": "3.0.0",
-    "@docusaurus/theme-live-codeblock": "^3.0.0",
-    "@mdx-js/react": "^3.0.0",
-    "clsx": "^1.2.1",
-    "firebase": "^10.5.2",
-    "prism-react-renderer": "^2.1.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "start": "lerna run start",
+    "link": "lerna exec -- yarn link",
+    "watch:lib": "lerna watch --scope=@jaouan/labosaurus -- lerna run build:lib",
+    "format": "eslint . --fix",
+    "lint": "eslint .",
+    "build:lib": "lerna run build:lib",
+    "build:demo": "lerna run build:demo",
+    "deploy:demo": "lerna run build:demo && lerna run deploy"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.0.0",
-    "@docusaurus/types": "3.0.0"
-  },
-  "browserslist": {
-    "production": [
-      ">0.5%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 3 chrome version",
-      "last 3 firefox version",
-      "last 5 safari version"
-    ]
-  },
-  "engines": {
-    "node": ">=18.0"
+    "@typescript-eslint/eslint-plugin": "^6.11.0",
+    "@typescript-eslint/parser": "^6.11.0",
+    "eslint": "^8.53.0",
+    "lerna": "^7.4.2",
+    "prettier": "^3.1.0"
   }
 }

@@ -1,0 +1,22 @@
+.slide .slide--page-space {
+  display: block;
+  height: 90vh;
+}
+.slide h2 {
+  margin-top: 90vh;
+}
+.slide .col--3 {
+  display: none;
+}
+.slide aside {
+  visibility: hidden;
+}
+
+.block {
+  background: var(--ifm-menu-color-background-active);
+  border-radius: var(--ifm-global-radius);
+  margin: 0 0 var(--ifm-spacing-vertical);
+  border: 1px solid transparent;
+  box-shadow: var(--ifm-alert-shadow);
+  padding: var(--ifm-global-spacing);
+}
