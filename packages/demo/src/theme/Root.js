@@ -1,4 +1,4 @@
-import { GoogleLogin, LabosaurusRoot, firebaseAuthProvider, firebaseStoreProvider } from '@jaouan/labosaurus';
+import { GoogleLogin, LabosaurusRoot, debugAuthProvider, debugInMemoryStoreProvider, firebaseAuthProvider, firebaseStoreProvider } from '@jaouan/labosaurus';
 
 import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 import * as firebase from 'firebase/app';
@@ -8,12 +8,24 @@ import firebaseConfig from '../../firebase-config.json';
 export const app = firebase.initializeApp(firebaseConfig);
 ExecutionEnvironment.canUseDOM && getAnalytics(app);
 
+sessionStorage.setItem("mockAuth", !!(ExecutionEnvironment.canUseDOM && window.location.search?.includes("mockAuth")));
+const isAuthMocked = () => sessionStorage.getItem("mockAuth") === "true";
+
 export default function Root({ children }) {
   return (
     <LabosaurusRoot
-      config={{
+      config={isAuthMocked() ? {
+        authProvider: debugAuthProvider(),
+        storeProvider: debugInMemoryStoreProvider(),
+        loginComponent: () => (
+          <>
+            <GoogleLogin />
+            <div className="mock">(authentication is mocked)</div>
+          </>
+        )
+      } : {
         authProvider: firebaseAuthProvider(app),
-        storeProvider: firebaseStoreProvider(app),
+        storeProvider: debugInMemoryStoreProvider(),
         loginComponent: () => <GoogleLogin />
       }}
     >
