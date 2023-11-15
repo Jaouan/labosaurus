@@ -21,7 +21,18 @@ const config = {
     defaultLocale: 'fr',
     locales: ['fr']
   },
-  plugins: ['@docusaurus/theme-live-codeblock'],
+  plugins: [
+    '@docusaurus/theme-live-codeblock',
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'fake-lab',
+        path: 'docs-fake-lab',
+        routeBasePath: 'fake-lab',
+        sidebarPath: require.resolve('./sidebars.js'),
+      },
+    ]
+  ],
   presets: [
     [
       'classic',
@@ -34,7 +45,7 @@ const config = {
           customCss: './src/theme/theme.css'
         }
       })
-    ]
+    ],
   ],
 
   themeConfig:
@@ -53,7 +64,13 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'docsSidebar',
             position: 'left',
-            label: 'Demo'
+            label: 'Showcase'
+          },
+          {
+            to: '/fake-lab/example',
+            label: 'Fake lab',
+            position: 'left',
+            activeBaseRegex: `/fake-lab/`,
           },
           {
             href: 'https://github.com/Jaouan/labosaurus',
