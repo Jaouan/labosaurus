@@ -6,10 +6,12 @@ import { getAnalytics } from 'firebase/analytics';
 import firebaseConfig from '../../firebase-config.json';
 
 export const app = firebase.initializeApp(firebaseConfig);
-ExecutionEnvironment.canUseDOM && getAnalytics(app);
 
-sessionStorage.setItem("mockAuth", !!(ExecutionEnvironment.canUseDOM && window.location.search?.includes("mockAuth")));
-const isAuthMocked = () => sessionStorage.getItem("mockAuth") === "true";
+if (ExecutionEnvironment.canUseDOM) {
+  getAnalytics(app);
+  sessionStorage.setItem("mockAuth", !!window.location.search?.includes("mockAuth"));
+}
+const isAuthMocked = () => ExecutionEnvironment.canUseDOM && sessionStorage?.getItem("mockAuth") === "true";
 
 export default function Root({ children }) {
   return (
