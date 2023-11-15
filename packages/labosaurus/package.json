@@ -2,6 +2,22 @@
   "name": "@jaouan/labosaurus",
   "version": "0.0.1",
   "license": "MIT",
+  "keywords": [
+    "codelab",
+    "ssg",
+    "training",
+    "react",
+    "firebase",
+    "docusaurus"
+  ],
+  "homepage": "https://github.com/Jaouan/labosaurus",
+  "bugs": {
+    "url": "https://github.com/Jaouan/labosaurus/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jaouan/labosaurus.git"
+  },
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
