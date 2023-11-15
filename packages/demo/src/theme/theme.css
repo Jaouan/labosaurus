@@ -42,3 +42,7 @@ ol > li::marker {
 details * {
   --docusaurus-details-decoration-color: gray;
 }
+
+.alert a {
+  text-decoration: underline;
+}

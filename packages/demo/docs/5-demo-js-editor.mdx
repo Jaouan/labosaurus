@@ -56,6 +56,104 @@ root.render(<App/>);`,
 
 <Sandpack template="vue" />
 
+## Sandpack - Labosaurus components
+<Sandpack
+  theme="dark"
+  options={{
+    showLineNumbers: true,
+    showInlineErrors: true,
+  }}
+  customSetup={{
+    entry: "/index.jsx",
+    dependencies: { 
+      "react": "latest",
+      "react-dom": "latest",
+      "@jaouan/labosaurus": "latest",
+      "tslib": "latest",
+      "clsx": "latest",
+      "firebase": "latest",
+    },
+  }}
+  files={{
+    "/App.jsx": `import { Hint } from '@jaouan/labosaurus';
+
+export default function App() {
+  return (
+    <>
+      Lorem ipsum
+      <Hint>oui</Hint>
+    </>
+  );
+}`,
+    "/index.jsx": {
+      code:`import ReactDOM from 'react-dom';
+import App from './App';
+
+ReactDOM.createRoot(
+  document.getElementById('root')
+).render(<App/>);`, hidden: true},
+    "/index.html": {
+      code:`<html>
+
+<body>
+  <div id="root" class="markdown"></div>
+  <link href="https://lab.jaouan.dev/sandpack-docusaurus.css" rel="stylesheet">
+</body>
+
+</html>`, 
+      hidden:true
+    },
+}}
+/>
+
+
+<Sandpack
+  theme="dark"
+  options={{
+    showLineNumbers: true,
+    showInlineErrors: true,
+  }}
+  customSetup={{
+    entry: "/index.jsx",
+    dependencies: { 
+      "react": "latest",
+      "react-dom": "latest",
+      "@jaouan/labosaurus": "latest",
+      "tslib": "latest",
+      "clsx": "latest",
+      "firebase": "latest",
+    },
+  }}
+  files={{
+    "/App.jsx": `import { SimpleQuestion } from '@jaouan/labosaurus';
+
+export default function App() {
+  return (
+    <SimpleQuestion
+      label="🫵 What's the weather like today?"
+      answer="Sunny"
+      wrongAnswers={["Cloudy", "Rainy"]}
+    />
+  );
+}`,
+    "/index.jsx":{code: `import ReactDOM from 'react-dom';
+import App from './App';
+
+ReactDOM.createRoot(
+  document.getElementById('root')
+).render(<App/>);`,
+hidden:true
+    },
+    "/index.html": {code:`<html>
+<body>
+  <div id="root" class="markdown"></div>
+  <link href="https://lab.jaouan.dev/sandpack-docusaurus.css" rel="stylesheet">
+</body>
+
+</html>`, hidden: true},
+}}
+/>
+
 ## Docusaurus (native) - ReactJS
 
 ```jsx live
