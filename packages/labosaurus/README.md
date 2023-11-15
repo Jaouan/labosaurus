@@ -39,10 +39,14 @@ export default function Root({ children }) {
 ### Slide mode
 Adds a space before each title to facilitate presentation.
 Enable it by pressing `Option+Shift+S`.
+![labosaurus-slide-demo](https://github.com/Jaouan/labosaurus/assets/7120207/9587733e-e273-46eb-a2a8-7edc55a7d3dd)
+
 
 ### Hidden block
 Allows to hide/show content from all readers in realtime.  
 Can be plugged to any realtime sources, such as Firestore, your own API or anything else.
+  
+![labosaurus-hidden-demo](https://github.com/Jaouan/labosaurus/assets/7120207/d5dcfc90-aea5-4b53-97a3-fb0f07198fae)
   
 Only administrator can show/hide hidden blocks.  
 If you use firebase, Labosaurus will access to your Firestore to fetch user information. You have to create a collection `users`. Inside create a document with user's email as id, and a field `admin: true`. Ensure to secure your collection.
@@ -101,6 +105,7 @@ export default function Root({ children }) {
 
 ### Hint
 Displays a hint.  
+![labosaurus-hint-demo](https://github.com/Jaouan/labosaurus/assets/7120207/086b5179-27c2-4b2f-b1b1-b019e73d4f7e)
   
 ```mdx
 import { Hint } from "@jaouan/labosaurus";
@@ -111,6 +116,8 @@ import { Hint } from "@jaouan/labosaurus";
 ### Question
 Displays a simple question.  
 Answer cannot be seen in the DOM, but could be found in sources (not easily).  
+  
+![labosaurus-question-demo](https://github.com/Jaouan/labosaurus/assets/7120207/c122aa4d-f657-47c9-a2c2-4ce7bb3e3e28)
   
 Parameters :
 - **label** : The... label.
@@ -152,10 +159,12 @@ import { SimpleQuestion } from "@jaouan/labosaurus";
 
 ### Authentication
 By using `LabosaurusRoot`, the user will be prompted to authenticate.  
-You can use anything you want to authenticate.  
-Labosaurus provides a Firebase authentication, but you can highly customize authentication and use others access manager, or your own API, or nothing.
+**You can use anything you want to authenticate.**  
+Labosaurus provides a Firebase authentication (Google oAuth), but you can highly customize authentication and use others access manager, or your own API, or nothing.
+![labosaurus-signin-google](https://github.com/Jaouan/labosaurus/assets/7120207/e777263c-07e8-4436-a87a-00afa8ae6377)
+
   
-Use Firebase :
+Using Firebase :
 ```jsx
 import * as firebase from 'firebase/app';
 import { LabosaurusRoot, GoogleLogin, firebaseAuthProvider } from '@jaouan/labosaurus';
