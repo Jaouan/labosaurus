@@ -10,6 +10,21 @@ import { SimpleQuestion } from "@jaouan/labosaurus";
   wrongAnswers={["Cloudy", "Rainy"]}
 />
 
+<details>
+  <summary>🧑‍💻 **Show code**</summary>
+  <div>
+```jsx
+import { SimpleQuestion } from "@jaouan/labosaurus";
+
+<SimpleQuestion
+  label="🫵 What's the weather like today?"
+  answer="Sunny"
+  wrongAnswers={["Cloudy", "Rainy"]}
+/>
+```
+  </div>
+</details>
+
 ## Simple answer, randomized
 <SimpleQuestion
   label="🫵 What's the weather like today?"
@@ -17,6 +32,22 @@ import { SimpleQuestion } from "@jaouan/labosaurus";
   wrongAnswers={["Cloudy", "Rainy"]}
   randomize={true}
 />
+
+<details>
+  <summary>🧑‍💻 **Show code**</summary>
+  <div>
+```jsx
+import { SimpleQuestion } from "@jaouan/labosaurus";
+
+<SimpleQuestion
+  label="🫵 What's the weather like today?"
+  answer="Sunny"
+  wrongAnswers={["Cloudy", "Rainy"]}
+  randomize={true}
+/>
+```
+  </div>
+</details>
 
 ## Simple answer with details
 
@@ -32,6 +63,27 @@ import { SimpleQuestion } from "@jaouan/labosaurus";
     "Rainy",
   ]}
 />
+<details>
+  <summary>🧑‍💻 **Show code**</summary>
+  <div>
+```jsx
+import { SimpleQuestion } from "@jaouan/labosaurus";
+
+<SimpleQuestion
+  label="🫵 What's the weather like today?"
+  answer="Sunny"
+  wrongAnswers={[
+    {
+      label: "Cloudy",
+      details:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    },
+    "Rainy",
+  ]}
+/>
+```
+  </div>
+</details>
 
 <SimpleQuestion
   label="🫵 What's the weather like today?"
@@ -44,6 +96,26 @@ import { SimpleQuestion } from "@jaouan/labosaurus";
     },
   ]}
 />
+<details>
+  <summary>🧑‍💻 **Show code**</summary>
+  <div>
+```jsx
+import { SimpleQuestion } from "@jaouan/labosaurus";
+
+<SimpleQuestion
+  label="🫵 What's the weather like today?"
+  answer="Sunny"
+  wrongAnswers={[
+    {
+      label: "Cloudy",
+      details:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    },
+  ]}
+/>
+```
+  </div>
+</details>
 
 <SimpleQuestion
   label="🫵 What's the weather like today?"
@@ -76,3 +148,44 @@ import { SimpleQuestion } from "@jaouan/labosaurus";
   ]}
   randomize={true}
 />
+
+<details>
+  <summary>🧑‍💻 **Show code**</summary>
+  <div>
+```jsx
+import { SimpleQuestion } from "@jaouan/labosaurus";
+
+<SimpleQuestion
+  label="🫵 What's the weather like today?"
+  answer={{
+    label: "Sunny",
+    details:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  }}
+  wrongAnswers={[
+    {
+      label: "Cloudy",
+      details:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    },
+    {
+      label: "Rainy",
+      details:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    },
+    {
+      label: "Stormy",
+      details:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    },
+    {
+      label: "Very very sunny",
+      details:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    },
+  ]}
+  randomize={true}
+/>
+```
+  </div>
+</details>

@@ -10,7 +10,7 @@ export const firebaseAuthProvider = (firebaseApp: FirebaseApp): AuthProvider => 
   const logout = async (afterAction: (user: User | null) => void = () => {}) =>
     signOut(auth).then(() => afterAction(null));
 
-  const login = async (): Promise<void> => {
+  const login = async () => {
     try {
       await signInWithPopup(auth, googleProvider);
     } catch (err) {
@@ -18,9 +18,9 @@ export const firebaseAuthProvider = (firebaseApp: FirebaseApp): AuthProvider => 
     }
   };
 
-  const getUser = (): string | undefined | null => auth.currentUser?.email;
+  const getUser = () => auth.currentUser?.email;
 
-  const isAdmin = async (): Promise<boolean> => {
+  const isAdmin = async () => {
     const db: Firestore = getFirestore(firebaseApp);
     const userDoc = await getDoc(doc(db, 'users', auth.currentUser?.email || ''));
     return !!userDoc.data()?.admin;

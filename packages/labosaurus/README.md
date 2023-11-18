@@ -2,8 +2,8 @@
 
 **Labosaurus** provides interactive features to Docusaurus, useful for training purposes.  
   
-✨ **[Live demo here!](https://lab.jaouan.dev/docs/hidden)**, or ([with Google authentication](https://lab.jaouan.dev/docs/hidden?enableAuth)), or ([with fake authentication](https://lab.jaouan.dev/docs/hidden?mockAuth))  
-🧪 **[Lab example here!](https://lab.jaouan.dev/fake-lab/example)**, or ([with Google authentication](https://lab.jaouan.dev/fake-lab/example?enableAuth)), or ([with fake authentication](https://lab.jaouan.dev/fake-lab/example?mockAuth))  
+✨ **[Live demo here!](https://lab.jaouan.dev/docs/hidden)**, or ([with Google authentication](https://lab.jaouan.dev/docs/hidden?auth=google)), or ([with fake authentication](https://lab.jaouan.dev/docs/hidden?auth=mock))  
+🧪 **[Lab example here!](https://lab.jaouan.dev/docs/lab-example)**, or ([with Google authentication](https://lab.jaouan.dev/docs/lab-example?auth=google)), or ([with fake authentication](https://lab.jaouan.dev/docs/lab-example?auth=mock))  
 
   
 ## How to install
@@ -49,7 +49,9 @@ Can be plugged to any realtime sources, such as Firestore, your own API or anyth
 ![labosaurus-hidden-demo](https://github.com/Jaouan/labosaurus/assets/7120207/d5dcfc90-aea5-4b53-97a3-fb0f07198fae)
   
 Only administrator can show/hide hidden blocks.  
-If you use firebase, Labosaurus will access to your Firestore to fetch user information. You have to create a collection `users`. Inside create a document with user's email as id, and a field `admin: true`. Ensure to secure your collection.
+If you use firebase/firestore, you have to create 2 collections :
+- `hidden` : Labosaurus will use it to store the state of hidden groups.
+- `users` : Labosaurus will use it to check if the connected user is an administrator. For each administrator, create a document with user's email as id, and a field `admin: true`. Ensure to secure your collection.
 
 Parameters :
 - **until** : The sequential number of the block. Displaying a block with `until=N` will display all blocks `<N` of the current group.
@@ -155,6 +157,40 @@ import { SimpleQuestion } from "@jaouan/labosaurus";
   ]}
   randomize={true}
 />
+```
+
+## Browser Window
+Just an integration of [Facebook's Browser Window](https://github.com/facebook/docusaurus/tree/main/website/src/components/BrowserWindow).
+
+```jsx
+import { BrowserWindow } from '@jaouan/labosaurus';
+
+<BrowserWindow url="https://my-website">
+    Hello world
+</BrowserWindow>
+```
+
+### Blur Flow
+This displays blurry steps, which the user can discover through an interactive experience.
+  
+Parameter :
+- **unblurred** : Disable blur, useful for the first step.
+  
+```mdx
+import { BlurFlow, BlurFlowStep, unblurNextStep } from '@jaouan/labosaurus';
+
+<BlurFlow>
+  <BlurFlowStep unblurred={true}>
+    <button onClick={unblurNextStep}>Reveal next step</button>
+  </BlurFlowStep>
+  <BlurFlowStep>
+    Hello
+    <button onClick={unblurNextStep}>Reveal next step</button>
+  </BlurFlowStep>
+  <BlurFlowStep>
+    Bye
+  </BlurFlowStep>
+</BlurFlow>
 ```
 
 ### Authentication

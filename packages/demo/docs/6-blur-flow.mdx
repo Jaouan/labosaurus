@@ -1,0 +1,63 @@
+import { BlurFlow, BlurFlowStep, unblurNextStep, BrowserWindow } from '@jaouan/labosaurus';
+import { Fireworks } from 'fireworks-js';
+
+# 6. Blur flow
+
+<BlurFlow>
+  <BlurFlowStep unblurred={true}>
+    <button onClick={unblurNextStep}>Reveal next step</button>
+  </BlurFlowStep>
+  ▼<BlurFlowStep>
+    <span onClick={unblurNextStep}>**Hey!** Click here to reveal next step</span>
+  </BlurFlowStep>▼
+  <BlurFlowStep>
+    <BrowserWindow url="https://my-website">
+      Hello !
+      <button
+        onClick={evt => {
+          unblurNextStep(evt);
+          new Fireworks(document.querySelector('.fireworks-container')).start();
+        }}
+      >Reveal final step</button>
+    </BrowserWindow>
+  </BlurFlowStep>
+  ▼<BlurFlowStep>🎉</BlurFlowStep>
+</BlurFlow>
+
+<details>
+  <summary>🧑‍💻 **Show code**</summary>
+  <div>
+```jsx
+<BlurFlow>
+
+  <BlurFlowStep unblurred={true}>
+    <button onClick={unblurNextStep}>Reveal next step</button>
+  </BlurFlowStep>
+  ▼
+  <BlurFlowStep>
+    <span onClick={unblurNextStep}>**Hey!** Click here to reveal next step</span>
+  </BlurFlowStep>
+  ▼
+  <BlurFlowStep>
+    <BrowserWindow url="https://my-website">
+      Hello !
+      <button
+        onClick={evt => {
+          unblurNextStep(evt);
+          // Awesome third party library fireworks-js.
+          new Fireworks(document.querySelector('.fireworks-container')).start();
+        }}
+      >Reveal final step</button>
+    </BrowserWindow>
+  </BlurFlowStep>
+  ▼
+  <BlurFlowStep>
+    🎉
+  </BlurFlowStep>
+
+</BlurFlow>
+```
+  </div>
+</details>
+
+<div className="fireworks-container"></div>

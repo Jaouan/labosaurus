@@ -26,9 +26,9 @@ const config = {
     [
       '@docusaurus/plugin-content-docs',
       {
-        id: 'fake-lab',
-        path: 'docs-fake-lab',
-        routeBasePath: 'fake-lab',
+        id: 'labs',
+        path: 'labs',
+        routeBasePath: 'labs',
         sidebarPath: require.resolve('./sidebars.js'),
       },
     ]
@@ -64,13 +64,13 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'docsSidebar',
             position: 'left',
-            label: 'Showcase'
+            label: 'Components'
           },
           {
-            to: '/fake-lab/example',
-            label: 'Fake lab',
+            to: '/labs/intro',
+            label: 'Labs',
             position: 'left',
-            activeBaseRegex: `/fake-lab/`,
+            activeBaseRegex: `/labs/`,
           },
           {
             href: 'https://github.com/Jaouan/labosaurus',

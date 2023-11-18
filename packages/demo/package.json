@@ -1,6 +1,6 @@
 {
   "name": "@jaouan/labosaurus-demo",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
@@ -13,6 +13,7 @@
     "@docusaurus/core": "3.0.0",
     "@docusaurus/preset-classic": "3.0.0",
     "@docusaurus/theme-live-codeblock": "^3.0.0",
+    "@fireworks-js/react": "^2.10.7",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^1.2.1",
     "firebase": "^10.6.0",

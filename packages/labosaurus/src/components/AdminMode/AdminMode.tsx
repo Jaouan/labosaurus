@@ -1,15 +1,17 @@
-import { useEffect, useState, useCallback, ReactNode } from 'react';
+import { useEffect, useState, useCallback, ReactNode, useContext } from 'react';
 import clsx from 'clsx';
 import { LabosaurusConfig } from '../../labosaurus.interface';
+import { LabosaurusContext } from '../LabosaurusContext';
 
 import './AdminMode.css';
 
 interface AdminModeProps {
   children: ReactNode;
-  config: LabosaurusConfig;
 }
 
-export const AdminMode: React.FC<AdminModeProps> = ({ children, config: { authProvider } }) => {
+export const AdminMode: React.FC<AdminModeProps> = ({ children }) => {
+  const { authProvider } = useContext<LabosaurusConfig>(LabosaurusContext);
+
   const [slideMode, setSlideMode] = useState<boolean>(false);
   const [admin, setAdmin] = useState<boolean>(false);
 

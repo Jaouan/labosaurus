@@ -4,7 +4,7 @@ import { Hidden } from "@jaouan/labosaurus";
 
 ## Group 1
 
-Only admin can show/hide hidden block. Use <a href="?mockAuth" target="_blank">mocked authentication</a> to be a fake admin.  
+Only admin can show/hide hidden block. Use <a href="?auth=mock" target="_blank">mocked authentication</a> to be a fake admin.  
 Hidden block is hidden on client side, content is not in the DOM, but can be extracted from sources.  
 
 <Hidden until="101">
@@ -42,3 +42,27 @@ echo foo
     <div>![coucou](./assets/dino-coucou.png)</div>
   </details>
 </Hidden>
+
+## Code
+<details>
+  <summary>🧑‍💻 **Show code**</summary>
+  <div>
+```jsx
+import { Hidden } from "@jaouan/labosaurus";
+
+<Hidden until="101">
+  Hey i'm hidden!
+</Hidden>
+<Hidden until="102" label="Hidden with custom label.">
+  Me too!
+</Hidden>
+
+<Hidden until="101" group="group-2">
+  I'm in my own Hidden group!
+</Hidden>
+<Hidden until="102" group="group-2">
+  Yes!
+</Hidden>
+```
+  </div>
+</details>

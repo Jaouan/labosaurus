@@ -1,7 +1,7 @@
 import { Sandpack } from "@codesandbox/sandpack-react";
 import { Hidden, Hint, SimpleQuestion } from "@jaouan/labosaurus";
 
-# Example
+# 0. Lab Example
 
 :::tip
 Here an example of a fake codelab with interactive components.  
@@ -33,7 +33,7 @@ echo foo
 
 2. In cursus turpis massa tincidunt dui ut ornare.
 <Hint>Lorem ipsum dolor sit amet.</Hint>
-<Hidden group="fake-lab" until="1" label="Solution is not available yet.">
+<Hidden group="lab" until="1" label="Solution is not available yet.">
 <details>
     <summary>🙌 **Solution**</summary>
     <div>
@@ -46,7 +46,7 @@ echo bar
 
 3. Vel fringilla est ullamcorper eget nulla facilisi etiam.
 <Hint>Lorem ipsum dolor sit amet.</Hint>
-<Hidden group="fake-lab" until="2" label="Solution is not available yet.">
+<Hidden group="lab" until="2" label="Solution is not available yet.">
 <details>
     <summary>🙌 **Solution**</summary>
     <div>
@@ -112,7 +112,7 @@ Fermentum posuere urna nec tincidunt praesent semper feugiat nibh sed. Magna fer
 ## Magna fermentum iaculi
 1. In cursus turpis massa tincidunt dui ut ornare.
 <Hint>Lorem ipsum dolor sit amet.</Hint>
-<Hidden group="fake-lab" until="3" label="Solution is not available yet.">
+<Hidden group="lab" until="3" label="Solution is not available yet.">
 <details>
     <summary>🙌 **Solution**</summary>
     <div>
@@ -129,7 +129,7 @@ Congue mauris rhoncus aenean vel elit scelerisque mauris pellentesque.
 2. Lectus quam id leo in vitae turpis massa sed.
 <Hint>Lorem ipsum dolor sit amet.</Hint>
 <Sandpack template="react" />
-<Hidden group="fake-lab" until="4" label="Solution is not available yet.">
+<Hidden group="lab" until="4" label="Solution is not available yet.">
 <details>
     <summary>🙌 **Solution**</summary>
     <div>
@@ -142,9 +142,89 @@ echo bar
 
 3. Lectus quam id leo in vitae turpis massa sed.
 <Hint>Lorem ipsum dolor sit amet.</Hint>
-<Hidden group="fake-lab" until="5" label="Exercise is not available yet.">
-<Sandpack template="react" />
-<Hidden group="fake-lab" until="6" label="Solution is not available yet.">
+<Hidden group="lab" until="5" label="Exercise is not available yet.">
+<Sandpack
+  theme="dark"
+  template="vue"
+  options={{
+    showLineNumbers: true,
+    showInlineErrors: true,
+  }}
+  customSetup={{
+    entry: "/ReactApp.jsx",
+    dependencies: { 
+      "react": "latest",
+      "react-dom": "latest",
+      "vue": "latest",
+    },
+      main: "/src/App.vue",
+  environment: "vue-cli",
+  }}
+  files={{
+    "/src/main.js": {
+      code: `import { createApp } from 'vue'
+import App from './App.vue'
+import ReactApp from './ReactApp.jsx'
+import ReactDOM from 'react-dom/client';
+
+createApp(App).mount('#root-vue')
+console.log(document.body)
+
+ReactDOM.createRoot(
+  document.getElementById('root')
+).render(ReactApp());
+`},
+    "/src/ReactApp.jsx": `
+import React from 'react';
+
+export default function ReactApp() {
+  return React.createElement('h1', null, 'Hello React');
+}
+`,
+"/src/App.vue": `<template>
+  <h1>Hello {{ msg }}</h1>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+const msg = ref('Vue');
+</script>`,
+    "/public/index.html": {
+      code:`<html>
+
+<head></head>
+
+<body>
+  <div id="root"></div>
+  <div id="root-vue"></div>
+  <div id="app"></div>
+</body>
+
+</html>`
+  },    "/package.json": {
+      code: JSON.stringify({
+        name: "vue3",
+        version: "0.1.0",
+        private: true,
+        main: "/src/main.js",
+        scripts: {
+          serve: "vue-cli-service serve",
+          build: "vue-cli-service build",
+        },
+        dependencies: {
+          "core-js": "^3.26.1",
+          vue: "^3.2.45",
+        },
+        devDependencies: {
+          "@vue/cli-plugin-babel": "^5.0.8",
+          "@vue/cli-service": "^5.0.8",
+        },
+      }),
+    },
+  }}
+
+/>
+<Hidden group="lab" until="6" label="Solution is not available yet.">
 <details>
     <summary>🙌 **Solution**</summary>
     <div>

@@ -1,0 +1,23 @@
+.blur-flow-step {
+  transition: all 500ms ease-in-out;
+}
+
+.blur-flow-step--blurred {
+  pointer-events: none;
+  user-select: none;
+  filter: blur(5px);
+  opacity: 0.5;
+}
+
+.blur-flow-step--masked {
+  opacity: 0.2;
+}
+
+.blur-flow-step--masked > * {
+  pointer-events: none;
+  user-select: none;
+}
+
+.blur-flow-step--masked:hover {
+  opacity: 0.6;
+}

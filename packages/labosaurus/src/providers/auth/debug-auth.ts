@@ -15,7 +15,7 @@ export const debugAuthProvider = (): AuthProvider => {
 
   const login = async () => updateUser('dummy');
 
-  const isAdmin = async (): Promise<boolean> => !!getUser();
+  const isAdmin = async () => !!getUser();
 
   const onUser = (callback: (user: string | undefined | null) => void): (() => void) => {
     authSubscribers.push(callback);
