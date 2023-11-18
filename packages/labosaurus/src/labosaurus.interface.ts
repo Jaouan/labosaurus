@@ -4,5 +4,5 @@ import { StoreProvider } from './providers/store/store-provider.interface';
 export interface LabosaurusConfig {
   authProvider: AuthProvider;
   storeProvider: StoreProvider;
-  loginComponent: () => JSX.Element;
+  loginElement: () => JSX.Element;
 }

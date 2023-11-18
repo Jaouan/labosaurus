@@ -26,7 +26,7 @@ export default function Root({ children }) {
       config={{
         storeProvider: firebaseStoreProvider(app), // Uses Firestore to display/hide Hidden blocks.
         authProvider: firebaseAuthProvider(app), // Uses Firebase auth.
-        loginComponent: () => <GoogleLogin /> // Displays a "Sign in with Google" button.
+        loginElement: () => <GoogleLogin /> // Displays a "Sign in with Google" button.
       }}
     >
       {children}
@@ -212,7 +212,7 @@ export default function Root({ children }) {
     <LabosaurusRoot
       config={{
         authProvider: firebaseAuthProvider(app), // Uses Firebase auth.
-        loginComponent: () => <GoogleLogin /> // Displays a "Sign in with Google" button.
+        loginElement: () => <GoogleLogin /> // Displays a "Sign in with Google" button.
         ...
       }}
     >
@@ -236,7 +236,7 @@ export default function Root({ children }) {
         return unsubscribeFunction;
         }
     },
-    loginComponent: () => {
+    loginElement: () => {
         const { authProvider } = useContext<LabosaurusConfig>(LabosaurusContext);
         return <button onClick={authProvider.login}>Login</button>;
     }

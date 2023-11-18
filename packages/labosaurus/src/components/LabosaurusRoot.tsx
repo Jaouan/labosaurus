@@ -4,9 +4,9 @@ import { GoogleLogin } from './Login/GoogleLogin';
 import { LabosaurusConfig } from '../labosaurus.interface';
 import { debugInMemoryStoreProvider } from '../providers/store/debug-in-memory';
 import { LabosaurusContext } from './LabosaurusContext';
+import { noAuthProvider } from '../providers/auth/no-auth';
 
 import './labosaurus.global.css';
-import { noAuthProvider } from '../providers/auth/no-auth';
 
 interface LabosaurusRootProps {
   children: ReactNode;
@@ -22,7 +22,7 @@ export const LabosaurusRoot: React.FC<LabosaurusRootProps> = ({ children, config
   const safeConfig: LabosaurusConfig = {
     storeProvider: config.storeProvider ?? debugInMemoryStoreProvider(),
     authProvider: config.authProvider ?? noAuthProvider(),
-    loginComponent: config.loginComponent ?? (() => <GoogleLogin />)
+    loginElement: config.loginElement ?? (() => <GoogleLogin />)
   };
 
   safeConfig.authProvider.onUser(callbackUser => {
@@ -33,7 +33,7 @@ export const LabosaurusRoot: React.FC<LabosaurusRootProps> = ({ children, config
   if (verifyingAuthentication) return <></>;
   return (
     <LabosaurusContext.Provider value={safeConfig}>
-      {isAuthenticated() ? <AdminMode>{children}</AdminMode> : safeConfig.loginComponent()}
+      {isAuthenticated() ? <AdminMode>{children}</AdminMode> : safeConfig.loginElement()}
     </LabosaurusContext.Provider>
   );
 };
