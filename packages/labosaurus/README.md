@@ -161,7 +161,9 @@ import { SimpleQuestion } from "@jaouan/labosaurus";
 
 ## Browser Window
 Just an integration of [Facebook's Browser Window](https://github.com/facebook/docusaurus/tree/main/website/src/components/BrowserWindow).
-
+  
+![labosaurus-browser-window-demo](https://github.com/Jaouan/labosaurus/assets/7120207/134f633c-e99b-4b58-b914-ffe1eef04cd3)
+  
 ```jsx
 import { BrowserWindow } from '@jaouan/labosaurus';
 
@@ -172,6 +174,8 @@ import { BrowserWindow } from '@jaouan/labosaurus';
 
 ### Blur Flow
 This displays blurry steps, which the user can discover through an interactive experience.
+  
+![labosaurus-blurflow-demo](https://github.com/Jaouan/labosaurus/assets/7120207/488f07ce-8a1f-454a-90dc-ecb4f8ff961a)
   
 Parameter :
 - **unblurred** : Disable blur, useful for the first step.
