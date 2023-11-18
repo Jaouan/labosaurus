@@ -1,0 +1,66 @@
+# 1. Authentication
+
+## Firebase / Google authentication
+
+<a href="https://lab.jaouan.dev/?auth=google" target="_blank">Try Labosaurus with Google authentication (new tab or incognito mode)</a>
+
+<details>
+  <summary>🧑‍💻 **Show code**</summary>
+  <div>
+Swizzle Docusaurus Root `/src/theme/Root.js` :
+```jsx
+import { GoogleLogin, LabosaurusRoot, firebaseAuthProvider, firebaseStoreProvider } from '@jaouan/labosaurus';
+import * as firebase from 'firebase/app';
+
+export const app = firebase.initializeApp(firebaseConfig);
+
+export default function Root({ children }) {
+  return (
+    <LabosaurusRoot
+      config={{
+        storeProvider: firebaseStoreProvider(app), // Access to Firestore (check <Hidden/> component)
+        authProvider: firebaseAuthProvider(app), // Uses Firebase auth.
+        loginElement: () => <GoogleLogin /> // Displays a "Sign in with Google" button.
+      }}
+    >
+      {children}
+    </LabosaurusRoot>
+  );
+}
+```
+  </div>
+</details>
+
+## Custom authentication
+
+<a href="https://lab.jaouan.dev/?auth=mock" target="_blank">Try Labosaurus with custom authentication (new tab or incognito mode)</a>
+
+<details>
+  <summary>🧑‍💻 **Show code**</summary>
+  <div>
+Swizzle Docusaurus Root `/src/theme/Root.js` :
+```jsx
+<LabosaurusRoot
+    config={{
+    authProvider: {
+        login: async () => { ... },
+        logout: async () => { ... },
+        isAdmin: async () => { return true|false },
+        getUser: () => { return "string"|undefined; },
+        onUser: (callback) => { // Labosaurus subscribes to user login/logout.
+        ...
+        callback(user); // Triggers callback immediately.
+        return unsubscribeFunction;
+        }
+    },
+    loginElement: () => {
+        const { authProvider } = useContext<LabosaurusConfig>(LabosaurusContext);
+        return <button onClick={authProvider.login}>Login</button>;
+    }
+    }}
+>
+    {children}
+</LabosaurusRoot>
+```
+  </div>
+</details>
