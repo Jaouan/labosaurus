@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, SyntheticEvent } from 'react';
 import clsx from 'clsx';
 
 import './SimpleQuestion.css';
@@ -21,7 +21,7 @@ interface SimpleQuestionProps {
   label: string;
   answer: string | Answer;
   wrongAnswers: Array<string | Answer>;
-  onAnswer?: (selectedAnswer?: string) => void;
+  onAnswer?: (selectedAnswer: string, originEvent?: SyntheticEvent<Element, any>) => void;
 }
 
 export const SimpleQuestion: React.FC<SimpleQuestionProps> = ({ label, answer, wrongAnswers, onAnswer }) => {
@@ -35,9 +35,9 @@ export const SimpleQuestion: React.FC<SimpleQuestionProps> = ({ label, answer, w
     setAllAnswers(shuffleArray(orderedAnswers));
   }, [answer, wrongAnswers]);
 
-  const selectAnswer = (selectedAnswer: Answer) => {
+  const selectAnswer = (selectedAnswer: Answer, originEvent?: SyntheticEvent<Element, any>) => {
     setSelectedAnswer(selectedAnswer.label);
-    onAnswer?.(selectedAnswer.label);
+    onAnswer?.(selectedAnswer.label, originEvent);
   };
 
   return (
@@ -56,7 +56,7 @@ export const SimpleQuestion: React.FC<SimpleQuestionProps> = ({ label, answer, w
                 'answer--wrong':
                   selectedAnswer && anAnswer.label !== properAnswer.label && selectedAnswer === anAnswer.label
               })}`}
-              onClick={() => selectAnswer(anAnswer)}
+              onClick={evt => selectAnswer(anAnswer, evt)}
               disabled={!!selectedAnswer}
             >
               {anAnswer.label}
