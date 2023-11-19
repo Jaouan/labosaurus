@@ -21,10 +21,10 @@ interface SimpleQuestionProps {
   label: string;
   answer: string | Answer;
   wrongAnswers: Array<string | Answer>;
-  randomize: boolean;
+  onAnswer?: (selectedAnswer?: string) => void;
 }
 
-export const SimpleQuestion: React.FC<SimpleQuestionProps> = ({ label, answer, wrongAnswers, randomize }) => {
+export const SimpleQuestion: React.FC<SimpleQuestionProps> = ({ label, answer, wrongAnswers, onAnswer }) => {
   const [properAnswer, setProperAnswer] = useState<Answer>({} as Answer);
   const [allAnswers, setAllAnswers] = useState<Answer[]>([]);
   const [selectedAnswer, setSelectedAnswer] = useState<string | false>(false);
@@ -32,10 +32,13 @@ export const SimpleQuestion: React.FC<SimpleQuestionProps> = ({ label, answer, w
   useEffect(() => {
     setProperAnswer(toAnswerObject(answer));
     const orderedAnswers: Answer[] = [answer, ...wrongAnswers].map(toAnswerObject);
-    setAllAnswers(randomize ? shuffleArray(orderedAnswers) : orderedAnswers);
-  }, [answer, wrongAnswers, randomize]);
+    setAllAnswers(shuffleArray(orderedAnswers));
+  }, [answer, wrongAnswers]);
 
-  const selectAnswer = (selectedAnswer: Answer) => setSelectedAnswer(selectedAnswer.label);
+  const selectAnswer = (selectedAnswer: Answer) => {
+    setSelectedAnswer(selectedAnswer.label);
+    onAnswer?.(selectedAnswer.label);
+  };
 
   return (
     <div

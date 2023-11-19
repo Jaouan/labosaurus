@@ -125,7 +125,7 @@ Parameters :
 - **label** : The... label.
 - **answer** : The... answer. It can be a string, or an object with details. Details is displayed after the user made his choice.
 - **wrongAnswers** : An array of wrong answers. It can be a string, or an object with details.
-- **randomize** (optional) : Randomize answers (`false` by default).
+- **onAnswer** (optional) : On answer callback.
   
 ```mdx
 import { SimpleQuestion } from "@jaouan/labosaurus";
@@ -134,6 +134,7 @@ import { SimpleQuestion } from "@jaouan/labosaurus";
   label="🫵 What's the weather like today?"
   answer="Sunny"
   wrongAnswers={["Cloudy", "Rainy"]}
+  onAnswer={onAnswer}
 />
 
 <SimpleQuestion
@@ -155,7 +156,6 @@ import { SimpleQuestion } from "@jaouan/labosaurus";
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     },
   ]}
-  randomize={true}
 />
 ```
 
