@@ -172,6 +172,16 @@ import { BrowserWindow } from '@jaouan/labosaurus';
 </BrowserWindow>
 ```
 
+## Admin/User only
+Displays a content only if user is an admin, or not.  
+
+```jsx
+import { AdminOnly, UserOnly } from '@jaouan/labosaurus';
+
+<AdminOnly>If you see this, then you are an admin.</AdminOnly>
+<UserOnly>If you see this, then you are a user, but not an admin.</UserOnly>
+```
+
 ### Blur Flow
 This displays blurry steps, which the user can discover through an interactive experience.
   

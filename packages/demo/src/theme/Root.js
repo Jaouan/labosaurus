@@ -35,7 +35,7 @@ const configByAuthStrategy = (configByAuthStrategies[getAuthType()] ?? configByA
 export default function Root({ children }) {
   // DISABLE SSG FOR THIS EXAMPLE ONLY.
   // SSG will hydrate blog with no auth, so it might break CSR auth.
-  if(!ExecutionEnvironment.canUseDOM) return <></>;
+  if (!ExecutionEnvironment.canUseDOM) return <></>;
 
   return (
     <LabosaurusRoot config={configByAuthStrategy}>

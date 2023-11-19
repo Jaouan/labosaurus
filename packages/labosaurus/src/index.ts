@@ -4,6 +4,7 @@ export { LabosaurusRoot } from './components/LabosaurusRoot';
 export { LabosaurusContext } from './components/LabosaurusContext';
 export { Hint } from './components/Hint/Hint';
 export { Hidden } from './components/Hidden/Hidden';
+export { AdminOnly, UserOnly } from './components/ShowIf/ShowIf';
 export { AdminMode } from './components/AdminMode/AdminMode';
 export { SimpleQuestion } from './components/Question/SimpleQuestion';
 export { GoogleLogin } from './components/Login/GoogleLogin';
