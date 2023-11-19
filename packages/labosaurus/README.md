@@ -159,7 +159,7 @@ import { SimpleQuestion } from "@jaouan/labosaurus";
 />
 ```
 
-## Browser Window
+### Browser Window
 Just an integration of [Facebook's Browser Window](https://github.com/facebook/docusaurus/tree/main/website/src/components/BrowserWindow).
   
 ![labosaurus-browser-window-demo](https://github.com/Jaouan/labosaurus/assets/7120207/134f633c-e99b-4b58-b914-ffe1eef04cd3)
@@ -172,7 +172,7 @@ import { BrowserWindow } from '@jaouan/labosaurus';
 </BrowserWindow>
 ```
 
-## Admin/User only
+### Admin/User only
 Displays a content only if user is an admin, or not.  
 
 ```jsx
