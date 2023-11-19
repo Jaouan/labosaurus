@@ -1,5 +1,5 @@
 import { Sandpack } from "@codesandbox/sandpack-react";
-import { Hidden, Hint, SimpleQuestion } from "@jaouan/labosaurus";
+import { Hidden, Hint, SimpleQuestion, BlurFlow, BlurFlowStep, unblurNextStep, BrowserWindow } from "@jaouan/labosaurus";
 
 # 0. Lab Example
 
@@ -238,6 +238,50 @@ echo bar
 
 ## Lectus quam id leo
 Lectus quam id leo in vitae turpis massa sed. Mauris cursus mattis molestie a iaculis at erat. Massa vitae tortor condimentum lacinia quis vel eros donec ac. Praesent semper feugiat nibh sed pulvinar proin gravida hendrerit lectus. Tellus elementum sagittis vitae et. Ornare arcu dui vivamus arcu felis bibendum ut tristique. Id aliquet risus feugiat in ante. Non sodales neque sodales ut. Duis tristique sollicitudin nibh sit amet commodo. Imperdiet nulla malesuada pellentesque elit.
+
+<BlurFlow>
+  <BlurFlowStep unblurred={true}>
+    <BrowserWindow url={`https://mon-app<span class="browserwindow-url--highlight">/</span>`}>
+      <div className="box">
+        Shell  
+      </div>
+    </BrowserWindow>
+    <div class="flow-action"><button onClick={unblurNextStep}>👉 Next</button></div>
+  </BlurFlowStep>
+  <BlurFlowStep>
+    <div class="arrow">⇩</div>
+    <BrowserWindow url={`https://mon-app<span class="browserwindow-url--highlight">/contact</span>`}>
+      <div className="box">
+        Shell
+        <div className="box--inner">
+          Header
+          <div className="box--inner">
+            <div class="flow-action"><button onClick={unblurNextStep}>👉 Next</button></div>
+          </div>
+          Footer
+        </div>
+      </div>
+    </BrowserWindow>
+  </BlurFlowStep>
+  <BlurFlowStep>
+    <div class="arrow">⇩</div>
+    <BrowserWindow url={`https://mon-app<span class="browserwindow-url--highlight">/</span>`}>
+      <div className="box">
+        Shell
+        <div className="box--inner">
+          Header
+          <div className="box--inner">
+            Final content
+          </div>
+          Footer
+        </div>
+      </div>
+    </BrowserWindow>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </BlurFlowStep>
+</BlurFlow>
+
+
 
 <SimpleQuestion
   label="🫵 Lorem ipsum dolor sit amet?"
