@@ -34,6 +34,7 @@
   width: 100%;
   border: 0;
   background: var(--ifm-background-surface-color);
+  color: var(--ifm-color-content);
   border: 1px solid var(--ifm-color-emphasis-300);
   transition: border-color var(--ifm-transition-fast) var(--ifm-transition-timing-default);
   box-shadow: none;
