@@ -6,4 +6,4 @@
 🧪 **[Lab example here!](https://lab.jaouan.dev/docs/lab-example)**, or ([with Google authentication](https://lab.jaouan.dev/docs/lab-example?auth=google)), or ([with fake authentication](https://lab.jaouan.dev/docs/lab-example?auth=mock))  
 
 ## How to use
-👉 [Full documentation](../packages/labosaurus/README.md)
+👉 [Full documentation](../packages/labosaurus-core/README.md)
