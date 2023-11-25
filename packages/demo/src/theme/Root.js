@@ -1,4 +1,5 @@
-import { GoogleLogin, LabosaurusRoot, debugAuthProvider, debugInMemoryStoreProvider, firebaseAuthProvider, firebaseStoreProvider } from '@jaouan/labosaurus';
+import { GoogleLogin, LabosaurusRoot, debugAuthProvider, debugInMemoryStoreProvider } from '@labosaurus/core';
+import { firebaseAuthProvider, firebaseStoreProvider } from '@labosaurus/firebase';
 
 import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 import * as firebase from 'firebase/app';

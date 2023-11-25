@@ -1,5 +1,5 @@
 import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
-import { noAuthProvider } from '@jaouan/labosaurus';
+import { noAuthProvider } from '../../../labosaurus-core/dist';
 
 export const getAuthType = () => {
     if (!ExecutionEnvironment.canUseDOM) return noAuthProvider;

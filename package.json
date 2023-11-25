@@ -7,7 +7,7 @@
   "scripts": {
     "start": "lerna run start",
     "link": "lerna exec -- yarn link",
-    "watch:lib": "lerna watch --scope=@jaouan/labosaurus -- lerna run build:lib",
+    "watch:lib": "lerna watch --scope=@labosaurus/core -- lerna run build:lib",
     "format": "eslint . --fix",
     "lint": "eslint .",
     "build:lib": "lerna run build:lib",

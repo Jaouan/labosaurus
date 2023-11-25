@@ -1,6 +1,6 @@
 import { doc, setDoc, onSnapshot, getDoc, getFirestore, Firestore } from 'firebase/firestore';
 import { FirebaseApp } from 'firebase/app';
-import { DocumentReference, StoreProvider } from './store-provider.interface';
+import { DocumentReference, StoreProvider } from '@labosaurus/core';
 
 export const firebaseStoreProvider = (firebaseApp: FirebaseApp): StoreProvider => {
   const db: Firestore = getFirestore(firebaseApp);

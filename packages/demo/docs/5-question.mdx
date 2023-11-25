@@ -1,4 +1,4 @@
-import { SimpleQuestion } from "@jaouan/labosaurus";
+import { SimpleQuestion } from "@labosaurus/core";
 
 # 5. Question
 
@@ -8,20 +8,20 @@ import { SimpleQuestion } from "@jaouan/labosaurus";
   label="🫵 What's the weather like today?"
   answer="Sunny"
   wrongAnswers={["Cloudy", "Rainy"]}
-  onAnswer={(answer) => console.log(answer)}
+  onAnswer={(answerInformation) => console.log(answerInformation)}
 />
 
 <details>
   <summary>🧑‍💻 **Show code**</summary>
   <div>
 ```jsx
-import { SimpleQuestion } from "@jaouan/labosaurus";
+import { SimpleQuestion } from "@labosaurus/core";
 
 <SimpleQuestion
   label="🫵 What's the weather like today?"
   answer="Sunny"
   wrongAnswers={["Cloudy", "Rainy"]}
-  onAnswer={(answer) => console.log(answer)} // Optional
+  onAnswer={(answerInformation) => console.log(answerInformation)} // Optional
 />
 ```
   </div>
@@ -45,7 +45,7 @@ import { SimpleQuestion } from "@jaouan/labosaurus";
   <summary>🧑‍💻 **Show code**</summary>
   <div>
 ```jsx
-import { SimpleQuestion } from "@jaouan/labosaurus";
+import { SimpleQuestion } from "@labosaurus/core";
 
 <SimpleQuestion
   label="🫵 What's the weather like today?"
@@ -78,7 +78,7 @@ import { SimpleQuestion } from "@jaouan/labosaurus";
   <summary>🧑‍💻 **Show code**</summary>
   <div>
 ```jsx
-import { SimpleQuestion } from "@jaouan/labosaurus";
+import { SimpleQuestion } from "@labosaurus/core";
 
 <SimpleQuestion
   label="🫵 What's the weather like today?"
@@ -130,7 +130,7 @@ import { SimpleQuestion } from "@jaouan/labosaurus";
   <summary>🧑‍💻 **Show code**</summary>
   <div>
 ```jsx
-import { SimpleQuestion } from "@jaouan/labosaurus";
+import { SimpleQuestion } from "@labosaurus/core";
 
 <SimpleQuestion
   label="🫵 What's the weather like today?"

@@ -1,7 +1,7 @@
 import { GoogleAuthProvider, getAuth, signInWithPopup, signOut, Auth, User } from 'firebase/auth';
 import { doc, getDoc, getFirestore, Firestore } from 'firebase/firestore';
 import { FirebaseApp } from 'firebase/app';
-import { AuthProvider } from './auth-provider.interface';
+import { AuthProvider } from '@labosaurus/core';
 
 export const firebaseAuthProvider = (firebaseApp: FirebaseApp): AuthProvider => {
   const auth: Auth = getAuth(firebaseApp);

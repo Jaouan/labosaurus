@@ -9,12 +9,14 @@
 ## How to install
 Install Labosaurus :
 ```bash
-npm install @jaouan/labosaurus
+npm install @labosaurus/core
+npm install @labosaurus/firebase # If you want to use Firebase auth and storage.
 ```
 
 Inside your Docusaurus repository, create a file `src/theme/Root.tsx` (or `jsx`) :
 ```jsx
-import { GoogleLogin, LabosaurusRoot, firebaseAuthProvider, firebaseStoreProvider } from '@jaouan/labosaurus';
+import { GoogleLogin, LabosaurusRoot } from '@labosaurus/core';
+import { firebaseAuthProvider, firebaseStoreProvider } from '@labosaurus/firebase';
 
 // If you want to use Firebase. You can use something else if you want.
 import * as firebase from 'firebase/app';
@@ -59,7 +61,7 @@ Parameters :
 - **label** (optional) : Hidden label.
   
 ```mdx
-import { Hidden } from "@jaouan/labosaurus";
+import { Hidden } from "@labosaurus/core";
 
 <Hidden until={100}>
 ... Content ...
@@ -110,7 +112,7 @@ Displays a hint.
 ![labosaurus-hint-demo](https://github.com/Jaouan/labosaurus/assets/7120207/086b5179-27c2-4b2f-b1b1-b019e73d4f7e)
   
 ```mdx
-import { Hint } from "@jaouan/labosaurus";
+import { Hint } from "@labosaurus/core";
 
 <Hint>A hint</Hint>
 ```
@@ -128,7 +130,7 @@ Parameters :
 - **onAnswer** (optional) : On answer callback.
   
 ```mdx
-import { SimpleQuestion } from "@jaouan/labosaurus";
+import { SimpleQuestion } from "@labosaurus/core";
 
 <SimpleQuestion
   label="🫵 What's the weather like today?"
@@ -165,7 +167,7 @@ Just an integration of [Facebook's Browser Window](https://github.com/facebook/d
 ![labosaurus-browser-window-demo](https://github.com/Jaouan/labosaurus/assets/7120207/134f633c-e99b-4b58-b914-ffe1eef04cd3)
   
 ```jsx
-import { BrowserWindow } from '@jaouan/labosaurus';
+import { BrowserWindow } from '@labosaurus/core';
 
 <BrowserWindow url="https://my-website">
     Hello world
@@ -176,7 +178,7 @@ import { BrowserWindow } from '@jaouan/labosaurus';
 Displays a content only if user is an admin, or not.  
 
 ```jsx
-import { AdminOnly, UserOnly } from '@jaouan/labosaurus';
+import { AdminOnly, UserOnly } from '@labosaurus/core';
 
 <AdminOnly>If you see this, then you are an admin.</AdminOnly>
 <UserOnly>If you see this, then you are a user, but not an admin.</UserOnly>
@@ -191,7 +193,7 @@ Parameter :
 - **unblurred** : Disable blur, useful for the first step.
   
 ```mdx
-import { BlurFlow, BlurFlowStep, unblurNextStep } from '@jaouan/labosaurus';
+import { BlurFlow, BlurFlowStep, unblurNextStep } from '@labosaurus/core';
 
 <BlurFlow>
   <BlurFlowStep unblurred={true}>
@@ -217,7 +219,9 @@ Labosaurus provides a Firebase authentication (Google oAuth), but you can highly
 Using Firebase :
 ```jsx
 import * as firebase from 'firebase/app';
-import { LabosaurusRoot, GoogleLogin, firebaseAuthProvider } from '@jaouan/labosaurus';
+import { LabosaurusRoot, GoogleLogin } from '@labosaurus/core';
+import { firebaseAuthProvider } from '@labosaurus/firebase';
+
 
 export const app = firebase.initializeApp({ /* firebase config */ });
 
