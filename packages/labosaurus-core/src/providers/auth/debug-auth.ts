@@ -1,14 +1,18 @@
-import { AuthProvider } from './auth-provider.interface';
+import { AuthProvider, LabUser } from './auth-provider.interface';
 
 export const debugAuthProvider = (): AuthProvider => {
-  const authSubscribers: ((user: string | undefined | null) => void)[] = [];
+  const authSubscribers: ((user?: LabUser) => void)[] = [];
 
-  const getUser = () => sessionStorage.getItem('user');
+  const getUser = (): LabUser => ({
+    email: `${sessionStorage.getItem('user')}@labosaurus.com`,
+    name: sessionStorage.getItem('user')
+  });
 
-  const updateUser = (user: string | undefined) => {
-    console.debug(`session: ${getUser()} -> ${user}`);
-    user ? sessionStorage.setItem('user', user) : sessionStorage.removeItem('user');
-    authSubscribers.forEach((callback: (user: string | undefined | null) => void) => callback(user));
+  const updateUser = (userName: string | undefined) => {
+    console.debug(`session: ${getUser()} -> ${userName}`);
+    userName ? sessionStorage.setItem('user', userName) : sessionStorage.removeItem('user');
+    const user = getUser();
+    authSubscribers.forEach((callback: (user?: LabUser) => void) => callback(user));
   };
 
   const logout = async () => updateUser(undefined);
@@ -17,7 +21,7 @@ export const debugAuthProvider = (): AuthProvider => {
 
   const isAdmin = async () => !!getUser();
 
-  const onUser = (callback: (user: string | undefined | null) => void): (() => void) => {
+  const onUser = (callback: (user?: LabUser) => void): (() => void) => {
     authSubscribers.push(callback);
     callback(getUser());
     return () => {

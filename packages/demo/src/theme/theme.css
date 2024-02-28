@@ -62,7 +62,8 @@ details * {
   font-weight: bold;
 }
 
-.box, .box--inner {
+.box,
+.box--inner {
   background: var(--ifm-menu-color-background-active);
   border-radius: var(--ifm-global-radius);
   border: 1px solid var(--ifm-color-primary-lightest);
@@ -91,4 +92,14 @@ details * {
   top: 0;
   left: 0;
   z-index: var(--ifm-z-index-fixed);
+}
+
+div.navbar__items.navbar__items--right::after {
+  content: '';
+  width: 35px;
+  height: 35px;
+  background-image: url('https://lh3.googleusercontent.com/a/ACg8ocKiRyXAuh_ruh9H1VryyTgctClFSdcuSuR3vFJMSew2nBlK=s96-c'); /* Remplacez par le chemin de votre image */
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
 }

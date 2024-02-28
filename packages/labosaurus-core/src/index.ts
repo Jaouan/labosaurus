@@ -12,7 +12,7 @@ export { BlurFlow, BlurFlowStep, unblurNextStep } from './components/BlurFlow/Bl
 
 export { BrowserWindow } from './components/BrowserWindow/BrowserWindow';
 
-export { AuthProvider } from './providers/auth/auth-provider.interface';
+export { AuthProvider, LabUser } from './providers/auth/auth-provider.interface';
 export { noAuthProvider } from './providers/auth/no-auth';
 export { debugAuthProvider } from './providers/auth/debug-auth';
 

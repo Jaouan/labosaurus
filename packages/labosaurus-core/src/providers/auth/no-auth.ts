@@ -1,7 +1,7 @@
-import { AuthProvider } from './auth-provider.interface';
+import { AuthProvider, LabUser } from './auth-provider.interface';
 
 export const noAuthProvider = (anonymousIsAdmin = false): AuthProvider => {
-  const getUser = () => 'anonymous';
+  const getUser = () => ({ email: 'anonymous@labosaurus.com', name: 'anonymous' });
 
   const logout = async () => {};
 
@@ -9,7 +9,7 @@ export const noAuthProvider = (anonymousIsAdmin = false): AuthProvider => {
 
   const isAdmin = async () => anonymousIsAdmin;
 
-  const onUser = (callback: (user: string | undefined | null) => void): (() => void) => {
+  const onUser = (callback: (user?: LabUser) => void): (() => void) => {
     callback(getUser());
     return () => {};
   };

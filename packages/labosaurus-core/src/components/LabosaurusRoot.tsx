@@ -1,4 +1,4 @@
-import React, { useState, ReactNode } from 'react';
+import React, { useState, ReactNode, useEffect } from 'react';
 import { AdminMode } from './AdminMode/AdminMode';
 import { GoogleLogin } from './Login/GoogleLogin';
 import { LabosaurusConfig } from '../labosaurus.interface';
@@ -25,10 +25,14 @@ export const LabosaurusRoot: React.FC<LabosaurusRootProps> = ({ children, config
     loginElement: config.loginElement ?? (() => <GoogleLogin />)
   };
 
-  safeConfig.authProvider.onUser(callbackUser => {
-    user !== callbackUser && setUser(callbackUser);
-    verifyingAuthentication && setVerifyingAuthentication(false);
-  });
+  useEffect(
+    () =>
+      safeConfig.authProvider.onUser(callbackUser => {
+        user?.email !== callbackUser?.email && setUser(callbackUser);
+        verifyingAuthentication && setVerifyingAuthentication(false);
+      }),
+    []
+  );
 
   if (verifyingAuthentication) return <></>;
   return (
