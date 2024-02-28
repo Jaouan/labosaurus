@@ -40,8 +40,8 @@ export default function Root({ children }) {
   if (!ExecutionEnvironment.canUseDOM) return <></>;
 
   useEffect(() =>
-    configByAuthStrategy.authProvider.onUser((user) =>
-      document.documentElement.style.setProperty('--user-avatar', user.avatar)
+    configByAuthStrategy.authProvider?.onUser((user) =>
+      document.documentElement.style.setProperty('--user-avatar', `url("${user.avatar}")`)
     ),
     []
   );

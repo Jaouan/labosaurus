@@ -8,6 +8,7 @@
   --ifm-color-primary-lightest: #3cad6e;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --user-avatar: none;
 }
 
 [data-theme='dark'] {
@@ -98,7 +99,8 @@ div.navbar__items.navbar__items--right::after {
   content: '';
   width: 35px;
   height: 35px;
-  background-image: url('https://lh3.googleusercontent.com/a/ACg8ocKiRyXAuh_ruh9H1VryyTgctClFSdcuSuR3vFJMSew2nBlK=s96-c'); /* Remplacez par le chemin de votre image */
+  margin-left: 5px;
+  background-image: var(--user-avatar);
   background-size: cover;
   background-position: center;
   border-radius: 50%;
