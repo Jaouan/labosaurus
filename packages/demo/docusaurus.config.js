@@ -23,15 +23,6 @@ const config = {
   },
   plugins: [
     '@docusaurus/theme-live-codeblock',
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'labs',
-        path: 'labs',
-        routeBasePath: 'labs',
-        sidebarPath: require.resolve('./sidebars.js'),
-      },
-    ]
   ],
   presets: [
     [
@@ -65,12 +56,6 @@ const config = {
             sidebarId: 'docsSidebar',
             position: 'left',
             label: 'Components'
-          },
-          {
-            to: '/labs/intro',
-            label: 'Labs',
-            position: 'left',
-            activeBaseRegex: `/labs/`,
           },
           {
             href: 'https://github.com/Jaouan/labosaurus',
